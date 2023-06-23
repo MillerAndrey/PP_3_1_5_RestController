@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Control Users</title>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <span id="authenticatedUsername" class="nav-link active h6" aria-current="page"
+                          style="display: inline;"></span>
+                    <h6 style="display: inline;" class=" text-white
+                                                           fw-normal">with roles:</h6>
+                    <h6 id="authenticatedUserRoles"
+                        class="text-white fw-normal" aria-current="page"
+                        style="display: inline;"></h6>
+                </li>
+            </ul>
+
+        </div>
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/logout">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<section>
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-2 p-0 mt-2">
+                <div class="nav nav-pills flex-column mb-auto" role="group">
+
+                    <button style="color: white" class="btn-xs btn-primary btn-block" type="button">
+                        <a href="/admin" class="list-group-item list-group-item-action active" aria-current="true">Admin</a>
+                    </button>
+                    <button class="btn btn-link" type="button">
+                        <a href="/user">User</a>
+                    </button>
+                </div>
+            </div>
+
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4 bg-light hmax min-vh-100">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 ">
+                    <h1>User information-page</h1>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h4>
+                            About user
+                        </h4>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th> ID</th>
+                                <th> Name</th>
+                                <th> Lastname</th>
+                                <th> Age</th>
+                                <th> Email</th>
+                                <th> Role</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tbody id="authenticatedUserTable"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+</section>
+<script src="webjars/jquery/3.3.1/jquery.min.js"></script>
+<script src="webjars/popper.js/2.9.3/umd/popper.js"></script>
+<script src="webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script charset="windows-1251" type="text/javascript" th:src="@{/modal.js}"></script>
+</body>
+</html>
