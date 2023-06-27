@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -38,21 +39,18 @@
     </div>
 </nav>
 
-<section>
-    <div class="container-fluid">
-        <div class="row">
-
-            <div class="col-2 p-0 mt-2">
-                <div class="nav nav-pills flex-column mb-auto" role="group">
-
-                    <button style="color: white" class="btn-xs btn-primary btn-block" type="button">
-                        <a href="/admin" class="list-group-item list-group-item-action active" aria-current="true">Admin</a>
-                    </button>
-                    <button class="btn btn-link" type="button">
-                        <a href="/user">User</a>
-                    </button>
-                </div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2 p-0">
+            <div class="container-fluid p-0 pt-3">
+                <ul class="nav flex-column nav-pills">
+                    <li class="nav-item">
+                        <a class="nav-link active" sec:authorize="hasRole('ROLE_USER')" th:href="@{/user}">User</a>
+                        <a class="nav-link" sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/admin}">Admin</a>
+                    </li>
+                </ul>
             </div>
+        </div>
 
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4 bg-light hmax min-vh-100">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 ">

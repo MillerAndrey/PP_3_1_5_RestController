@@ -95,9 +95,9 @@ function editUser() {
                 roles: editedUserRoles
             })
         }).then(() => {
-            $('#editModalCloseButton').click()
+            $('#callBack').click()
             fillUsersTable()
-        })
+        }).then(() => location.reload())
     })
 }
 
@@ -127,7 +127,7 @@ function deleteUser() {
         }).then(() => {
             $('#deleteModalCloseButton').click()
             fillUsersTable()
-        })
+        }).then(() => location.reload())
     })
 }
 
@@ -164,7 +164,7 @@ function addUser() {
             newUserForm.reset()
             fillUsersTable()
             $('#users-tab').click()
-        })
+        }).then(() => location.reload())
     })
 }
 

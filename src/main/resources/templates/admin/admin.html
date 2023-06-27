@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <title>Admin page</title>
     <meta charset="UTF-8">
@@ -38,21 +38,18 @@
 </nav>
 
 
-<section>
-    <div class="container-fluid">
-        <div class="row">
-
-            <div class="col-2 p-0 mt-2">
-                <div class="nav nav-pills flex-column mb-auto" role="group">
-
-                    <button style="color: white" class="btn-xs btn-primary btn-block" type="button">
-                        <a href="/admin" class="list-group-item list-group-item-action active" aria-current="true">Admin</a>
-                    </button>
-                    <button class="btn btn-link" type="button">
-                        <a href="/user">User</a>
-                    </button>
-                </div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2 p-0">
+            <div class="container-fluid p-0 pt-3">
+                <ul class="nav flex-column nav-pills">
+                    <li class="nav-item">
+                        <a class="nav-link active" sec:authorize="hasRole('ADMIN')" th:href="@{/admin}">Admin</a>
+                        <a class="nav-link" th:href="@{/user}">User</a>
+                    </li>
+                </ul>
             </div>
+        </div>
 
 
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4 bg-light hmax min-vh-100">
@@ -161,7 +158,7 @@
                                         </select>
                                         </p>
                                         <input class="btn btn-success" type="submit"
-                                               value="Add new user"/>
+                                                        value="Add new user"/>
                                     </form>
                                 </div>
                             </div>
@@ -251,8 +248,8 @@
                             <button type="button" class="btn btn-secondary"
                                     data-dismiss="modal">Close
                             </button>
-                            <input class="btn btn-primary" type="submit"
-                                   value="Edit"/>
+                            <button type="submit" class="btn btn-primary">Edit
+                            </button>
                         </div>
                     </form>
                 </div>
